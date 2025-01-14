@@ -1,7 +1,7 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        ds = {l: s.count(l) for l in s}
-        dt = {l: t.count(l) for l in t}
+        ds = {char: s.count(char) for char in s}
+        dt = {char: t.count(char) for char in t}
         return ds == dt
 
 
