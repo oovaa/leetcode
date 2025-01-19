@@ -1,31 +1,66 @@
-import string
-
-
 class Solution:
-    possibilities = string.printable
+    """
+    A class used to encode and decode lists of strings.
 
+    Methods
+    -------
+    encode(strs: list[str]) -> str
+        Encodes a list of strings to a single string.
+
+    decode(s: str) -> list[str]
+        Decodes a single string back to a list of strings.
+    """
+
+    """
+        Encodes a list of strings to a single string.
+
+        Parameters
+        ----------
+        strs : list[str]
+            A list of strings to be encoded.
+
+        Returns
+        -------
+        str
+            A single string that represents the encoded list of strings.
+        """
+    # Implementation here
+
+    """
+        Decodes a single string back to a list of strings.
+
+        Parameters
+        ----------
+        s : str
+            A single string that represents the encoded list of strings.
+
+        Returns
+        -------
+        list[str]
+            A list of strings that were encoded in the input string.
+        """
+
+    # Implementation here
     def encode(self, strs: list[str]) -> str:
-        pass
+        enc = ""
+        for i in strs:
+            enc += f"{len(i)}#" + i
+        return enc
 
     def decode(self, s: str) -> list[str]:
-        pass
+        dec = []
+        i = 0
+        while i < len(s):
+            j = i
+            while s[j] != "#":
+                j += 1
+            length = int(s[i:j])
+            i = j + 1
+            dec.append(s[i : i + length])
+            i += length
+        return dec
 
 
-strs = ["neet", "code", "love", "you"]
-enc = ""
+strs = ["we", "say", ":", "yes"]
 
-for i in strs:
-    enc += f"#{len(i)}" + i
-
-print(enc)
-dec = []
-
-for i, v in enumerate(enc):
-    if enc[i] == "#" and enc[i + 1] in string.digits:
-        sl = int(enc[i + 1])
-        # print([enc[i : i + 2]], sl)
-        hold = enc[i + 2 : i + sl + 2]
-        # print(hold)
-        dec.append(hold)
-
-print(dec)
+print(Solution().decode(Solution().encode(strs)))
