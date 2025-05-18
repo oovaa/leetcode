@@ -1,7 +1,11 @@
 import numpy as np
 
-data = np.random.normal(5, 1, 100)  # Create data with mean=5, std=1
+data = np.random.normal(
+    5, 4, 10
+)  # Create data with mean=5, std=1 5 is the center 4 is like the distanse from the center allwoed 10 is the numbers to generate
 data = np.append(data, 200)  # Add an outlier at the end of the array
+
+print(data)
 
 mean = np.mean(data)
 std_dev = np.std(data)
