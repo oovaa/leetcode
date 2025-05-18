@@ -1,23 +1,35 @@
-import numpy as np
+from scipy.spatial import distance
 
-data = np.random.normal(
-    5, 4, 10
-)  # Create data with mean=5, std=1 5 is the center 4 is like the distanse from the center allwoed 10 is the numbers to generate
-data = np.append(data, 200)  # Add an outlier at the end of the array
-
-print(data)
-
-mean = np.mean(data)
-std_dev = np.std(data)
-threshold = 3
-
-lower = mean - threshold * std_dev
-upper = mean + threshold * std_dev
-
-outlaier = [x for x in data if x < lower or x > upper]
+p1 = (1, 2)
+p2 = (4, 6)
 
 
-print(lower, upper, outlaier)
+euclidean_distances = distance.euclidean(p1, p2)
+print("euclidean_distances = ", euclidean_distances)
+minkowski_distances = distance.minkowski(p1, p2, p=3)
+print("minkowski_distances = ", minkowski_distances)
+
+
+# import numpy as np
+
+# data = np.random.normal(
+#     5, 4, 10
+# )  # Create data with mean=5, std=1 5 is the center 4 is like the distanse from the center allwoed 10 is the numbers to generate
+# data = np.append(data, 200)  # Add an outlier at the end of the array
+
+# print(data)
+
+# mean = np.mean(data)
+# std_dev = np.std(data)
+# threshold = 3
+
+# lower = mean - threshold * std_dev
+# upper = mean + threshold * std_dev
+
+# outlaier = [x for x in data if x < lower or x > upper]
+
+
+# print(lower, upper, outlaier)
 
 
 # from matplotlib import legend
