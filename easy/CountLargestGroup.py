@@ -7,11 +7,13 @@ class Solution:
             s = sum([int(x) for x in holdd])
             ans[s] = ans.get(s, 0) + 1
         sizes = list(ans.values())
+        # print(ans)
         return sizes.count(max(sizes))
 
 
-n = 13
+n = 66
 
 s = Solution()
+
 
 print(s.countLargestGroup(n))
