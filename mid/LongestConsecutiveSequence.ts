@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
   /**
    * @param {number[]} nums
    * @return {number}
